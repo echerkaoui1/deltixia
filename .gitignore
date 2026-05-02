@@ -1,6 +1,10 @@
-# Outils Claude Code (paramètres locaux + cache des skills)
+# Outils Claude Code (paramètres locaux, cache des skills, doc interne)
 .claude/
 .agents/
+CLAUDE.md
+MEMORY.md
+skills-lock.json
+memory/
 
 # OS
 .DS_Store
