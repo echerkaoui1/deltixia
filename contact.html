@@ -4,8 +4,13 @@
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
  <meta name="theme-color" content="#0A0F1C" />
- <meta name="description" content="DELTIXIA — Contactez notre équipe à Rabat pour démarrer votre projet de digitalisation." />
- <title>Contact — DELTIXIA</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
+  <link rel="manifest" href="favicon_io/site.webmanifest" />
+  <link rel="shortcut icon" href="favicon_io/favicon.ico" />
+ <meta name="description" content="DELTIXIA · Contactez notre équipe à Rabat pour démarrer votre projet de digitalisation." />
+ <title>Contact · DELTIXIA</title>
 
  <link rel="preconnect" href="https://fonts.googleapis.com" />
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -73,22 +78,27 @@
  HERO
  ============================================================ -->
  <header class="relative pt-40 pb-12 lg:pt-48 lg:pb-16 overflow-hidden grain">
- <div class="aurora-bg"><div class="aurora-cyan"></div></div>
- <div class="absolute inset-0 bg-grid"></div>
- <canvas data-particles class="absolute inset-0 w-full h-full" data-count="22"></canvas>
+  <div class="aurora-bg" data-parallax="-12"><div class="aurora-cyan"></div></div>
+  <div class="absolute inset-0 bg-grid" data-parallax="-6"></div>
+  <canvas data-particles class="absolute inset-0 w-full h-full" data-count="22"></canvas>
+  <div class="orb orb-cyan w-[400px] h-[400px] -top-20 left-1/2 -translate-x-1/2 pulse-glow" data-parallax="18"></div>
 
- <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
- <div class="reveal flex justify-center mb-8">
- <span class="badge-live"><span class="dot"></span>Réponse sous 24h</span>
- </div>
- <h1 class="reveal display-xl">
- Parlons de votre <span class="gradient-text-tri">projet.</span>
- </h1>
- <p class="reveal reveal-delay-2 mt-6 text-lg text-deltixia-light/65 max-w-xl mx-auto leading-relaxed">
- Décrivez-nous votre besoin — on revient vers vous avec une lecture
- et des prochaines étapes concrètes.
- </p>
- </div>
+  <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+   <div class="reveal flex justify-center mb-8">
+    <span class="tape-text">CONTACT</span>
+   </div>
+   <h1 class="reveal display-xl leading-[.95]">
+    <span class="block text-deltixia-light/85">Parlons de</span>
+    <span class="block">
+     votre <span class="gradient-flow">projet</span>
+     <span class="deco-star align-middle">✳</span>
+    </span>
+   </h1>
+   <p class="reveal reveal-delay-2 mt-8 text-lg text-deltixia-light/65 max-w-xl mx-auto leading-relaxed">
+    Décrivez-nous votre besoin, on revient vers vous avec
+    <span class="gradient-text font-semibold">une lecture et des prochaines étapes concrètes.</span>
+   </p>
+  </div>
  </header>
 
  <!-- ============================================================
@@ -107,7 +117,7 @@
  form: { name:'', email:'', company:'', subject:'', message:'' },
  submit() {
  this.loading = true;
- /* Hébergement statique (Hostinger) — pas de back-end PHP/Node.
+ /* Hébergement statique (Hostinger), pas de back-end PHP/Node.
  On simule la soumission ; brancher Formspree, Web3Forms ou EmailJS
  pour l'envoi réel par email. */
  setTimeout(() => { this.loading = false; this.sent = true; }, 900);
@@ -222,11 +232,9 @@
  <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-deltixia-cyan to-deltixia-blue flex items-center justify-center mb-4">
  <svg class="w-5 h-5 text-white" aria-hidden="true"><use href="assets/icons.svg#map-pin"/></svg>
  </div>
- <div class="eyebrow text-deltixia-light/45 mb-1">Bureaux</div>
- <p class="font-semibold">Casablanca</p>
- <p class="text-xs text-deltixia-light/55 mt-0.5">Maroc</p>
- <p class="font-semibold mt-3">Rabat</p>
- <p class="text-xs text-deltixia-light/55 mt-0.5">Maroc</p>
+ <div class="eyebrow text-deltixia-light/45 mb-1">Bureau</div>
+            <p class="font-semibold">Rabat</p>
+            <p class="text-xs text-deltixia-light/55 mt-0.5">Maroc</p>
  </div>
 
  <div class="reveal reveal-delay-3 card card-spot card-hover p-6">
@@ -255,42 +263,75 @@
  <div class="md:col-span-1 p-8 lg:p-10 relative">
  <div class="absolute -top-20 -left-20 w-60 h-60 rounded-full bg-deltixia-blue/20 blur-3xl"></div>
  <div class="relative z-10">
- <p class="eyebrow">Implantations</p>
- <h2 class="display-md mt-3">
- Présent là où <span class="gradient-text">ça compte</span>
- </h2>
- <p class="mt-4 text-sm text-deltixia-light/60 leading-relaxed">
- Deux bureaux pour rester proches de nos clients
- et accompagner les projets sur tout le Royaume.
- </p>
+ <p class="eyebrow">Implantation</p>
+        <h2 class="display-md mt-3">
+         Présent là où <span class="gradient-text">ça compte</span>
+        </h2>
+        <p class="mt-4 text-sm text-deltixia-light/60 leading-relaxed">
+         Notre bureau à Rabat, point d'ancrage pour accompagner
+         les projets sur tout le Royaume.
+        </p>
 
- <div class="mt-6 space-y-3">
- <div class="flex items-center gap-3 text-sm">
- <span class="w-2.5 h-2.5 rounded-full bg-deltixia-cyan shadow-[0_0_12px_2px_rgba(6,182,212,.6)]"></span>
- <span><span class="font-semibold">Casablanca</span> — siège</span>
- </div>
- <div class="flex items-center gap-3 text-sm">
- <span class="w-2.5 h-2.5 rounded-full bg-deltixia-purple shadow-[0_0_12px_2px_rgba(124,58,237,.6)]"></span>
- <span><span class="font-semibold">Rabat</span> — bureau secondaire</span>
- </div>
- </div>
- </div>
- </div>
+        <div class="mt-6 space-y-3">
+         <div class="flex items-center gap-3 text-sm">
+          <span class="w-2.5 h-2.5 rounded-full bg-deltixia-cyan shadow-[0_0_12px_2px_rgba(6,182,212,.6)] animate-pulse"></span>
+          <span><span class="font-semibold">Rabat</span>, siège</span>
+         </div>
+        </div>
+       </div>
+      </div>
 
- <!-- Visuel carte -->
- <div class="md:col-span-2 relative min-h-[300px] bg-gradient-to-br from-deltixia-dark via-[#0d152a] to-[#0a1325]">
- <img src="map.jpg" alt="Carte du Maroc — bureaux DELTIXIA" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-luminosity" />
- <div class="absolute inset-0 bg-gradient-to-r from-deltixia-dark via-transparent to-transparent"></div>
- <!-- Points lumineux des villes -->
- <div class="absolute top-[35%] left-[35%] flex flex-col items-center pointer-events-none">
- <span class="w-3 h-3 rounded-full bg-deltixia-cyan shadow-[0_0_25px_5px] shadow-deltixia-cyan animate-pulse"></span>
- <span class="text-xs mt-1 font-semibold text-deltixia-light bg-deltixia-dark/80 backdrop-blur px-2 py-0.5 rounded">Casablanca</span>
- </div>
- <div class="absolute top-[28%] left-[48%] flex flex-col items-center pointer-events-none">
- <span class="w-3 h-3 rounded-full bg-deltixia-purple shadow-[0_0_25px_5px] shadow-deltixia-purple animate-pulse" style="animation-delay: .5s"></span>
- <span class="text-xs mt-1 font-semibold text-deltixia-light bg-deltixia-dark/80 backdrop-blur px-2 py-0.5 rounded">Rabat</span>
- </div>
- </div>
+      <!-- Visuel carte CSS pure (pas d'image, plus léger, scalable) -->
+      <div class="md:col-span-2 relative min-h-[320px] bg-gradient-to-br from-deltixia-dark via-[#0d152a] to-[#060912] overflow-hidden">
+
+       <!-- Grille géométrique de fond -->
+       <div class="absolute inset-0 bg-grid opacity-50"></div>
+
+       <!-- Halo central -->
+       <div class="orb orb-cyan w-[300px] h-[300px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 pulse-glow"></div>
+
+       <!-- Silhouette stylisée du Maroc en SVG décoratif -->
+       <svg class="absolute inset-0 w-full h-full opacity-25" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+         <linearGradient id="mar" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#06B6D4"/>
+          <stop offset="100%" stop-color="#7C3AED"/>
+         </linearGradient>
+        </defs>
+        <!-- Tracé schématique évoquant la côte marocaine -->
+        <path d="M 70 60 Q 90 40 130 50 L 180 70 Q 220 80 250 110 L 280 150 Q 310 180 320 220 L 290 270 Q 260 290 220 285 L 170 280 Q 130 270 100 240 L 70 200 Q 50 160 60 110 Z"
+              fill="url(#mar)" fill-opacity=".25"
+              stroke="#06B6D4" stroke-width=".8" stroke-opacity=".5"
+              stroke-dasharray="3,3"/>
+       </svg>
+
+       <!-- Coordonnées GPS éditoriales -->
+       <div class="absolute top-5 right-5 text-right font-mono text-[10px] text-deltixia-light/40 leading-tight">
+        <div>34.0209° N</div>
+        <div>6.8416° W</div>
+        <div class="mt-1 tracking-widest">RABAT · MA</div>
+       </div>
+
+       <!-- Marqueur Rabat, gros, animé, central -->
+       <div class="absolute top-[36%] left-[42%]">
+        <!-- Cercles concentriques pulsants -->
+        <span class="absolute inset-0 -m-12 rounded-full border border-deltixia-cyan/40 pulse-ring"></span>
+        <!-- Marqueur principal -->
+        <div class="relative flex flex-col items-center">
+         <span class="w-4 h-4 rounded-full bg-deltixia-cyan shadow-[0_0_30px_8px_rgba(6,182,212,.7)]"></span>
+         <span class="mt-3 text-xs font-semibold text-deltixia-light bg-deltixia-dark/85 backdrop-blur px-3 py-1 rounded-md border border-white/10">Rabat · siège</span>
+        </div>
+       </div>
+
+       <!-- Mini-stats sur la carte -->
+       <div class="absolute bottom-5 left-5 flex gap-3">
+        <div class="glass rounded-lg px-3 py-2">
+         <div class="text-[9px] uppercase tracking-widest text-deltixia-light/45">Couverture</div>
+         <div class="text-sm font-semibold text-deltixia-cyan">Tout le Royaume</div>
+        </div>
+       </div>
+
+      </div>
 
  </div>
  </div>
@@ -339,7 +380,7 @@
  <h4 class="text-xs font-semibold uppercase tracking-widest mb-5">Contact</h4>
  <ul class="space-y-3 text-sm text-deltixia-light/55">
  <li class="flex items-center gap-2"><svg class="w-4 h-4 text-deltixia-cyan" aria-hidden="true"><use href="assets/icons.svg#mail"/></svg> contact@deltixia.com</li>
- <li class="flex items-center gap-2"><svg class="w-4 h-4 text-deltixia-cyan" aria-hidden="true"><use href="assets/icons.svg#map-pin"/></svg> Casablanca / Rabat</li>
+ <li class="flex items-center gap-2"><svg class="w-4 h-4 text-deltixia-cyan" aria-hidden="true"><use href="assets/icons.svg#map-pin"/></svg> Rabat</li>
  </ul>
  </div>
  </div>

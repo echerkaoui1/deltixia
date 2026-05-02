@@ -1,5 +1,5 @@
 /* ==========================================================================
-   DELTIXIA — Moteur d'interactivité
+   DELTIXIA, Moteur d'interactivité
    - Réseau de particules (canvas) connecté
    - Curseur lumineux qui suit la souris
    - Spotlight sur cartes (CSS vars --mx/--my)
@@ -18,7 +18,7 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ----------------------------------------------------------
-     1. Réseau de particules — canvas léger, connectivité douce
+     1. Réseau de particules, canvas léger, connectivité douce
      ---------------------------------------------------------- */
   function initParticleNetwork() {
     const canvases = document.querySelectorAll('canvas[data-particles]');
@@ -140,7 +140,7 @@
   }
 
   /* ----------------------------------------------------------
-     3. Spotlight sur cartes — radial qui suit la souris
+     3. Spotlight sur cartes, radial qui suit la souris
      ---------------------------------------------------------- */
   function initSpotlight() {
     document.querySelectorAll('.card-spot').forEach(card => {
@@ -261,7 +261,7 @@
   }
 
   /* ----------------------------------------------------------
-     9. Word reveal — délais en cascade
+     9. Word reveal, délais en cascade
      ---------------------------------------------------------- */
   function initWordReveal() {
     document.querySelectorAll('[data-words]').forEach(host => {
@@ -282,6 +282,180 @@
   }
 
   /* ----------------------------------------------------------
+     11. Curseur blob, anneau qui suit la souris
+     ---------------------------------------------------------- */
+  function initBlobCursor() {
+    if (isCoarse) return;
+    const blob = document.createElement('div');
+    blob.className = 'blob-cursor';
+    document.body.appendChild(blob);
+
+    let cx = 0, cy = 0, tx = 0, ty = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      tx = e.clientX; ty = e.clientY;
+      blob.classList.add('visible');
+    }, { passive: true });
+
+    document.addEventListener('mouseleave', () => blob.classList.remove('visible'));
+
+    document.addEventListener('mouseover', (e) => {
+      const t = e.target;
+      if (t.closest('a, button, [data-blob-grow], .bento-card, .card')) blob.classList.add('expanded');
+      else blob.classList.remove('expanded');
+    });
+
+    function loop() {
+      cx += (tx - cx) * .14;
+      cy += (ty - cy) * .14;
+      blob.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
+      requestAnimationFrame(loop);
+    }
+    loop();
+  }
+
+  /* ----------------------------------------------------------
+     12. Text scramble, effet "decryption" sur survol/init
+     ---------------------------------------------------------- */
+  function initScramble() {
+    const chars = '!<>-_\\/[]{}=+*^?#&%~________';
+    document.querySelectorAll('[data-scramble]').forEach(el => {
+      const original = el.textContent;
+      let frame = 0, raf = null;
+
+      function scramble(duration = 1200) {
+        cancelAnimationFrame(raf);
+        const start = performance.now();
+        const end = start + duration;
+        const queue = original.split('').map((ch, i) => ({
+          from: chars[Math.floor(Math.random() * chars.length)],
+          to: ch,
+          start: i * 30,
+          end: i * 30 + 200 + Math.random() * 200,
+        }));
+
+        function tick(now) {
+          const elapsed = now - start;
+          let out = '', complete = 0;
+          queue.forEach(q => {
+            if (elapsed >= q.end) { out += q.to; complete++; }
+            else if (elapsed >= q.start) {
+              if (Math.random() < .28) q.from = chars[Math.floor(Math.random() * chars.length)];
+              out += `<span style="color:var(--d-cyan)">${q.from}</span>`;
+            } else out += q.from;
+          });
+          el.innerHTML = out;
+          if (complete < queue.length) raf = requestAnimationFrame(tick);
+        }
+        raf = requestAnimationFrame(tick);
+      }
+
+      // Lancer une fois au premier scroll-into-view
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { scramble(); io.unobserve(e.target); } });
+      }, { threshold: .5 });
+      io.observe(el);
+
+      // Re-scramble au hover
+      el.addEventListener('mouseenter', () => scramble(700));
+    });
+  }
+
+  /* ----------------------------------------------------------
+     13. Ticker numérique, chiffres qui défilent en continu
+     ---------------------------------------------------------- */
+  function initTickers() {
+    document.querySelectorAll('[data-ticker]').forEach(el => {
+      const start = parseInt(el.dataset.ticker) || 0;
+      const interval = parseInt(el.dataset.interval) || 2400;
+      const max = parseInt(el.dataset.max) || (start + 50);
+      let current = start;
+      el.textContent = current.toLocaleString('fr-FR');
+
+      setInterval(() => {
+        const inc = Math.floor(Math.random() * 3) + 1;
+        current = Math.min(current + inc, max);
+        if (current >= max) current = start; // boucle
+        el.textContent = current.toLocaleString('fr-FR');
+        el.style.color = 'var(--d-cyan)';
+        setTimeout(() => { el.style.color = ''; }, 280);
+      }, interval);
+    });
+  }
+
+  /* ----------------------------------------------------------
+     14. Parallax léger sur layers du hero
+     ---------------------------------------------------------- */
+  function initParallax() {
+    if (isCoarse || reduceMotion) return;
+    const layers = document.querySelectorAll('[data-parallax]');
+    if (!layers.length) return;
+
+    document.addEventListener('mousemove', (e) => {
+      const cx = (e.clientX / window.innerWidth  - .5) * 2;
+      const cy = (e.clientY / window.innerHeight - .5) * 2;
+      layers.forEach(el => {
+        const depth = parseFloat(el.dataset.parallax) || 10;
+        el.style.transform = `translate3d(${cx * depth}px, ${cy * depth}px, 0)`;
+      });
+    }, { passive: true });
+  }
+
+  /* ----------------------------------------------------------
+     15. Faux logs en streaming dans .log-feed
+     ---------------------------------------------------------- */
+  function initLogFeed() {
+    const feeds = document.querySelectorAll('[data-log-feed]');
+    if (!feeds.length) return;
+
+    const samples = [
+      { tag: 'tag-ok',   label: 'OK',    text: 'Email envoyé · client #2741',    delay: 'now' },
+      { tag: 'tag-run',  label: 'RUN',   text: 'Workflow Sage → CRM démarré',    delay: '2s' },
+      { tag: 'tag-info', label: 'INFO',  text: 'Stock M-220 réapprovisionné',    delay: '5s' },
+      { tag: 'tag-ok',   label: 'OK',    text: 'PDF signé · contrat #FAC-3122',  delay: '8s' },
+      { tag: 'tag-run',  label: 'RUN',   text: 'Synchronisation ERP en cours',   delay: '12s' },
+      { tag: 'tag-ok',   label: 'OK',    text: 'Notification Slack #équipe',     delay: '14s' },
+      { tag: 'tag-info', label: 'INFO',  text: 'Backup quotidien terminé',       delay: '18s' },
+      { tag: 'tag-ok',   label: 'OK',    text: 'Facture générée · 1 250 MAD',    delay: '22s' },
+    ];
+
+    feeds.forEach(feed => {
+      let i = 0;
+      function push() {
+        const s = samples[i % samples.length];
+        const line = document.createElement('div');
+        line.className = 'log-line';
+        line.innerHTML = `<span class="tag ${s.tag}">${s.label}</span><span>${s.text}</span><time>${s.delay}</time>`;
+        feed.prepend(line);
+        // Garder max 5 lignes affichées
+        while (feed.children.length > 5) feed.lastChild.remove();
+        i++;
+      }
+      push(); push(); push();
+      setInterval(push, 3500);
+    });
+  }
+
+  /* ----------------------------------------------------------
+     16. KPI temps réel qui varie légèrement
+     ---------------------------------------------------------- */
+  function initLiveKpis() {
+    document.querySelectorAll('[data-live-kpi]').forEach(el => {
+      const base = parseFloat(el.dataset.liveKpi);
+      const variance = parseFloat(el.dataset.variance) || .02;
+      const decimals = parseInt(el.dataset.decimals) || 0;
+      const suffix = el.dataset.suffix || '';
+      const prefix = el.dataset.prefix || '';
+
+      setInterval(() => {
+        const drift = (Math.random() - .5) * base * variance;
+        const val = (base + drift).toFixed(decimals);
+        el.textContent = prefix + val + suffix;
+      }, 1800);
+    });
+  }
+
+  /* ----------------------------------------------------------
      Boot
      ---------------------------------------------------------- */
   function boot() {
@@ -289,11 +463,16 @@
     initWordReveal();
     initScrollProgress();
     initParticleNetwork();
-    initCursor();
+    initBlobCursor();  // remplace l'ancien cursor-glow (plus moderne)
     initSpotlight();
     initTilt();
     initMagnetic();
     initCounters();
+    initScramble();
+    initTickers();
+    initParallax();
+    initLogFeed();
+    initLiveKpis();
   }
 
   if (document.readyState === 'loading') {
