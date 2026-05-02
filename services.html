@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <meta name="theme-color" content="#0A0F1C" />
+ <meta name="description" content="DELTIXIA — Services : automatisation des processus, applications web & mobiles, intégration de systèmes." />
+ <title>Services — DELTIXIA</title>
+
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+ tailwind.config = {
+ theme: {
+ extend: {
+ colors: { deltixia: { dark:'#0A0F1C', blue:'#2563EB', purple:'#7C3AED', cyan:'#06B6D4', light:'#F2F4F7' } },
+ fontFamily: { sans: ['Poppins','system-ui','sans-serif'] },
+ }
+ }
+ }
+ </script>
+
+ <link rel="stylesheet" href="assets/styles.css" />
+ <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+ <script defer src="assets/main.js"></script>
+</head>
+
+<body class="overflow-x-hidden">
+
+ <!-- ============================================================
+ NAVBAR
+ ============================================================ -->
+ <nav x-data="{ scrolled:false, mobileOpen:false }"
+ x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 30)"
+ :class="scrolled ? 'bg-deltixia-dark/75 backdrop-blur-xl border-b border-white/10' : 'bg-transparent border-b border-transparent'"
+ class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+ <div class="max-w-7xl mx-auto px-6 lg:px-8">
+ <div class="flex items-center justify-between h-20">
+ <a href="index.html" class="flex items-center gap-3 group">
+ <img src="logo.png" alt="Logo DELTIXIA" class="h-10 w-auto transition-transform group-hover:scale-110 group-hover:rotate-3" />
+ <span class="text-lg font-semibold tracking-wide gradient-text hidden sm:inline">DELTIXIA</span>
+ </a>
+ <div class="hidden lg:flex items-center gap-9">
+ <a href="index.html" class="nav-link">Accueil</a>
+ <a href="services.html" class="nav-link active">Services</a>
+ <a href="solutions.html" class="nav-link">Solutions</a>
+ <a href="about.html" class="nav-link">À propos</a>
+ <a href="contact.html" class="nav-link">Contact</a>
+ </div>
+ <a href="contact.html" class="hidden lg:inline-flex btn btn-primary magnetic" data-magnetic=".25">
+ Démarrer un projet <svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"/></svg>
+ </a>
+ <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-2 rounded-lg border border-white/10 bg-white/5" aria-label="Menu">
+ <svg x-show="!mobileOpen" class="w-5 h-5" aria-hidden="true"><use href="assets/icons.svg#menu"/></svg>
+ <svg x-show="mobileOpen" class="w-5 h-5" x-cloak aria-hidden="true"><use href="assets/icons.svg#x"/></svg>
+ </button>
+ </div>
+ <div x-show="mobileOpen" x-transition x-cloak class="lg:hidden pb-6 pt-2 border-t border-white/10 space-y-1">
+ <a href="index.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-deltixia-light/75">Accueil</a>
+ <a href="services.html" class="block px-4 py-3 rounded-lg hover:bg-white/5">Services</a>
+ <a href="solutions.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-deltixia-light/75">Solutions</a>
+ <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-deltixia-light/75">À propos</a>
+ <a href="contact.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-deltixia-light/75">Contact</a>
+ <a href="contact.html" class="block mt-3 mx-4 btn btn-primary">Démarrer un projet</a>
+ </div>
+ </div>
+ </nav>
+
+ <!-- ============================================================
+ HERO
+ ============================================================ -->
+ <header class="relative pt-40 pb-20 lg:pt-48 lg:pb-28 overflow-hidden grain">
+ <div class="aurora-bg"><div class="aurora-cyan"></div></div>
+ <div class="absolute inset-0 bg-grid"></div>
+ <canvas data-particles class="absolute inset-0 w-full h-full" data-count="28"></canvas>
+
+ <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
+ <div class="reveal flex justify-center mb-8">
+ <span class="badge-live"><span class="dot"></span>Nos services</span>
+ </div>
+ <h1 class="reveal display-xl">
+ Des expertises<br />
+ <span class="gradient-text-tri">techniques</span> <span class="text-outline">pointues.</span>
+ </h1>
+ <p class="reveal reveal-delay-2 mt-8 text-lg text-deltixia-light/65 max-w-2xl mx-auto leading-relaxed">
+ De l'automatisation des processus à l'intégration d'écosystèmes connectés —
+ nous couvrons toute la chaîne de valeur digitale, avec des résultats mesurables.
+ </p>
+ </div>
+ </header>
+
+ <!-- ============================================================
+ 3 SERVICES PRINCIPAUX — cartes XL avec glow cyan signature
+ ============================================================ -->
+ <section class="relative py-12 lg:py-20">
+ <div class="max-w-7xl mx-auto px-6 lg:px-8">
+ <div class="grid lg:grid-cols-3 gap-6">
+
+ <!-- Process Automation -->
+ <article class="reveal tilt-wrap">
+ <div class="tilt card card-spot card-border-glow rounded-3xl p-8 h-full" data-tilt="5">
+ <div class="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-deltixia-blue/30 blur-3xl"></div>
+ <div class="relative z-10">
+ <div class="flex items-center justify-between mb-6">
+ <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-deltixia-blue to-deltixia-purple flex items-center justify-center">
+ <svg class="w-8 h-8 text-white" aria-hidden="true"><use href="assets/icons.svg#workflow"/></svg>
+ </div>
+ <span class="text-5xl font-bold gradient-text-tri opacity-30">01</span>
+ </div>
+ <h3 class="text-2xl font-semibold mb-3">Process Automation</h3>
+ <p class="text-deltixia-light/60 leading-relaxed mb-6">
+ Robotisation des tâches manuelles, RPA, workflows N8n / Zapier sur mesure
+ et orchestration entre vos outils métiers.
+ </p>
+ <ul class="space-y-3 mb-7">
+ <li class="flex items-center gap-3 text-sm"><svg class="w-4 h-4 text-deltixia-cyan shrink-0" aria-hidden="true"><use href="assets/icons.svg#check-circle-2"/></svg> Audit des processus</li>
+ <li class="flex items-center gap-3 text-sm"><svg class="w-4 h-4 text-deltixia-cyan shrink-0" aria-hidden="true"><use href="assets/icons.svg#check-circle-2"/></svg> Robots &amp; scripts d'automation</li>
+ <li class="flex items-center gap-3 text-sm"><svg class="w-4 h-4 text-deltixia-cyan shrink-0" aria-hidden="true"><use href="assets/icons.svg#check-circle-2"/></svg> Intégration IA / LLM</li>
+ <li class="flex items-center gap-3 text-sm"><svg class="w-4 h-4 text-deltixia-cyan shrink-0" aria-hidden="true"><use href="assets/icons.svg#check-circle-2"/></svg> Reporting automatique</li>
+ </ul>
+ <a href="contact.html" class="btn-ghost text-sm font-semibold inline-flex items-center gap-2 text-deltixia-cyan">
+ En savoir plus <svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#arrow-right"/></svg>
+ </a>
+ </div>
+ </div>
+ </article>
+
+ <!-- Web & Mobile Apps -->
+ <article class="reveal reveal-delay-1 tilt-wrap">
+ <div class="tilt card card-spot card-border-glow rounded-3xl p-8 h-full" data-tilt="5">
+ <div class="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-deltixia-purple/30 blur-3xl"></div>
+ <div class="relative z-10">
+ <div class="flex items-center justify-between mb-6">
+ <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-deltixia-purple to-deltixia-cyan flex items-center justify-center">
+ <svg class="w-8 h-8 text-white" aria-hidden="true"><use href="assets/icons.svg#smartphone"/></svg>
+ </div>
+ <span class="text-5xl font-bold gradient-text-tri opacity-30">02</span>
+ </div>
+ <h3 class="text-2xl font-semibold mb-3">Web &amp; Mobile Apps</h3>
+ <p class="text-deltixia-light/60 leading-relaxed mb-6">
+ Conception et développement d'applications performantes,
+ scalables et taillées pour vos utilisateurs.
+ </p>
+ <ul class="space-y-3 mb-7">
+ <li class="flex items-center gap-3 text-sm"><svg class="w-4 h-4 text-deltixia-cyan shrink-0" aria-hidden="true"><use href="assets/icons.svg#check-circle-2"/></svg> SaaS &amp; plateformes B2B</li>
+ <li class="flex items-center gap-3 text-sm"><svg class="w-4 h-4 text-deltixia-cyan shrink-0" aria-hidden="true"><use href="assets/icons.svg#check-circle-2"/></svg> Apps iOS / Android</li>
+ <li class="flex items-center gap-3 text-sm"><svg class="w-4 h-4 text-deltixia-cyan shrink-0" aria-hidden="true"><use href="assets/icons.svg#check-circle-2"/></svg> Espaces clients &amp; portails</li>
+ <li class="flex items-center gap-3 text-sm"><svg class="w-4 h-4 text-deltixia-cyan shrink-0" aria-hidden="true"><use href="assets/icons.svg#check-circle-2"/></svg> UX/UI sur mesure</li>
+ </ul>
+ <a href="contact.html" class="btn-ghost text-sm font-semibold inline-flex items-center gap-2 text-deltixia-cyan">
+ En savoir plus <svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#arrow-right"/></svg>
+ </a>
+ </div>
+ </div>
+ </article>
+
+ <!-- System Integration -->
+ <article class="reveal reveal-delay-2 tilt-wrap">
+ <div class="tilt card card-spot card-border-glow rounded-3xl p-8 h-full" data-tilt="5">
+ <div class="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-deltixia-cyan/30 blur-3xl"></div>
+ <div class="relative z-10">
+ <div class="flex items-center justify-between mb-6">
+ <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-deltixia-cyan to-deltixia-blue flex items-center justify-center">
+ <svg class="w-8 h-8 text-white" aria-hidden="true"><use href="assets/icons.svg#git-merge"/></svg>
+ </div>
+ <span class="text-5xl font-bold gradient-text-tri opacity-30">03</span>
+ </div>
+ <h3 class="text-2xl font-semibold mb-3">System Integration</h3>
+ <p class="text-deltixia-light/60 leading-relaxed mb-6">
+ Connexion fiable de vos ERP, CRM, outils tiers et bases de données
+ via des APIs robustes et sécurisées.
+ </p>
+ <ul class="space-y-3 mb-7">
+ <li class="flex items-center gap-3 text-sm"><svg class="w-4 h-4 text-deltixia-cyan shrink-0" aria-hidden="true"><use href="assets/icons.svg#check-circle-2"/></svg> APIs REST / GraphQL</li>
+ <li class="flex items-center gap-3 text-sm"><svg class="w-4 h-4 text-deltixia-cyan shrink-0" aria-hidden="true"><use href="assets/icons.svg#check-circle-2"/></svg> ETL &amp; synchronisation</li>
+ <li class="flex items-center gap-3 text-sm"><svg class="w-4 h-4 text-deltixia-cyan shrink-0" aria-hidden="true"><use href="assets/icons.svg#check-circle-2"/></svg> Connecteurs ERP/CRM</li>
+ <li class="flex items-center gap-3 text-sm"><svg class="w-4 h-4 text-deltixia-cyan shrink-0" aria-hidden="true"><use href="assets/icons.svg#check-circle-2"/></svg> Sécurité &amp; RGPD</li>
+ </ul>
+ <a href="contact.html" class="btn-ghost text-sm font-semibold inline-flex items-center gap-2 text-deltixia-cyan">
+ En savoir plus <svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#arrow-right"/></svg>
+ </a>
+ </div>
+ </div>
+ </article>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- ============================================================
+ COMPÉTENCES COMPLÉMENTAIRES
+ ============================================================ -->
+ <section class="relative py-24 lg:py-32 overflow-hidden">
+ <div class="absolute inset-0 bg-dots opacity-50"></div>
+ <div class="orb orb-purple w-[400px] h-[400px] -bottom-20 -right-20 pulse-glow"></div>
+
+ <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+ <div class="text-center max-w-2xl mx-auto mb-16">
+ <p class="reveal eyebrow">Et aussi</p>
+ <h2 class="reveal display-lg mt-4">Compétences <span class="gradient-text">complémentaires</span></h2>
+ </div>
+
+ <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+ <div class="reveal card card-spot card-hover p-6">
+ <div class="w-12 h-12 rounded-xl bg-deltixia-cyan/10 border border-deltixia-cyan/30 flex items-center justify-center mb-4">
+ <svg class="w-6 h-6 text-deltixia-cyan" aria-hidden="true"><use href="assets/icons.svg#brain-circuit"/></svg>
+ </div>
+ <h4 class="font-semibold mb-1.5">IA &amp; Data</h4>
+ <p class="text-sm text-deltixia-light/55">Intégration de modèles, agents conversationnels, scoring et prévisions.</p>
+ </div>
+
+ <div class="reveal reveal-delay-1 card card-spot card-hover p-6">
+ <div class="w-12 h-12 rounded-xl bg-deltixia-blue/10 border border-deltixia-blue/30 flex items-center justify-center mb-4">
+ <svg class="w-6 h-6 text-deltixia-blue" aria-hidden="true"><use href="assets/icons.svg#cloud-cog"/></svg>
+ </div>
+ <h4 class="font-semibold mb-1.5">Cloud &amp; DevOps</h4>
+ <p class="text-sm text-deltixia-light/55">Infrastructure, CI/CD, monitoring et hébergement managé.</p>
+ </div>
+
+ <div class="reveal reveal-delay-2 card card-spot card-hover p-6">
+ <div class="w-12 h-12 rounded-xl bg-deltixia-purple/10 border border-deltixia-purple/30 flex items-center justify-center mb-4">
+ <svg class="w-6 h-6 text-deltixia-purple" aria-hidden="true"><use href="assets/icons.svg#lightbulb"/></svg>
+ </div>
+ <h4 class="font-semibold mb-1.5">Conseil digital</h4>
+ <p class="text-sm text-deltixia-light/55">Diagnostic, roadmap et accompagnement à la transformation.</p>
+ </div>
+
+ <div class="reveal reveal-delay-3 card card-spot card-hover p-6">
+ <div class="w-12 h-12 rounded-xl bg-deltixia-cyan/10 border border-deltixia-cyan/30 flex items-center justify-center mb-4">
+ <svg class="w-6 h-6 text-deltixia-cyan" aria-hidden="true"><use href="assets/icons.svg#life-buoy"/></svg>
+ </div>
+ <h4 class="font-semibold mb-1.5">Support &amp; TMA</h4>
+ <p class="text-sm text-deltixia-light/55">Maintenance corrective et évolutive sur vos applicatifs.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ============================================================
+ PROCESSUS — timeline horizontale
+ ============================================================ -->
+ <section class="relative py-24 lg:py-32 overflow-hidden">
+ <div class="aurora-bg opacity-50"></div>
+ <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+
+ <div class="text-center max-w-2xl mx-auto mb-16">
+ <p class="reveal eyebrow">Notre méthode</p>
+ <h2 class="reveal display-lg mt-4">Un parcours <span class="gradient-text">cadré</span> en 4 étapes</h2>
+ </div>
+
+ <div class="relative grid grid-cols-1 md:grid-cols-4 gap-6">
+ <!-- Ligne de fond -->
+ <div class="hidden md:block absolute top-7 left-12 right-12 h-px flow-line"></div>
+
+ <div class="reveal text-center">
+ <div class="relative inline-flex w-14 h-14 rounded-full bg-gradient-to-br from-deltixia-blue to-deltixia-purple items-center justify-center mb-5 shadow-[0_0_30px_-5px] shadow-deltixia-blue/60">
+ <span class="text-white font-bold">01</span>
+ </div>
+ <h4 class="font-semibold">Découverte</h4>
+ <p class="text-sm text-deltixia-light/55 mt-2 max-w-xs mx-auto">Atelier de cadrage et compréhension de vos enjeux métier.</p>
+ </div>
+
+ <div class="reveal reveal-delay-1 text-center">
+ <div class="relative inline-flex w-14 h-14 rounded-full bg-gradient-to-br from-deltixia-purple to-deltixia-cyan items-center justify-center mb-5 shadow-[0_0_30px_-5px] shadow-deltixia-purple/60">
+ <span class="text-white font-bold">02</span>
+ </div>
+ <h4 class="font-semibold">Conception</h4>
+ <p class="text-sm text-deltixia-light/55 mt-2 max-w-xs mx-auto">Maquettes, architecture, choix techniques et plan d'action.</p>
+ </div>
+
+ <div class="reveal reveal-delay-2 text-center">
+ <div class="relative inline-flex w-14 h-14 rounded-full bg-gradient-to-br from-deltixia-cyan to-deltixia-blue items-center justify-center mb-5 shadow-[0_0_30px_-5px] shadow-deltixia-cyan/60">
+ <span class="text-white font-bold">03</span>
+ </div>
+ <h4 class="font-semibold">Build</h4>
+ <p class="text-sm text-deltixia-light/55 mt-2 max-w-xs mx-auto">Sprints itératifs avec démos régulières et tests utilisateurs.</p>
+ </div>
+
+ <div class="reveal reveal-delay-3 text-center">
+ <div class="relative inline-flex w-14 h-14 rounded-full bg-gradient-to-br from-deltixia-blue via-deltixia-purple to-deltixia-cyan items-center justify-center mb-5 shadow-[0_0_30px_-5px] shadow-deltixia-purple/60">
+ <span class="text-white font-bold">04</span>
+ </div>
+ <h4 class="font-semibold">Run</h4>
+ <p class="text-sm text-deltixia-light/55 mt-2 max-w-xs mx-auto">Déploiement, support continu et optimisation pilotée par la data.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ============================================================
+ CTA FINAL
+ ============================================================ -->
+ <section class="relative py-24">
+ <div class="max-w-5xl mx-auto px-6 lg:px-8">
+ <div class="reveal relative card card-border-glow rounded-3xl p-10 lg:p-14 text-center overflow-hidden grain">
+ <div class="aurora-bg opacity-80"></div>
+ <div class="relative z-10">
+ <h2 class="display-md">
+ Un besoin précis ? <span class="gradient-text-tri">Parlons-en.</span>
+ </h2>
+ <p class="mt-4 text-deltixia-light/60 max-w-xl mx-auto">
+ Décrivez-nous votre projet, nous revenons sous 24h avec une première lecture.
+ </p>
+ <a href="contact.html" class="mt-9 btn btn-primary magnetic" data-magnetic=".3">
+ Demander un devis <svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"/></svg>
+ </a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- ============================================================
+ FOOTER
+ ============================================================ -->
+ <footer class="relative border-t border-white/10 mt-10">
+ <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+ <div class="grid grid-cols-2 lg:grid-cols-5 gap-10">
+ <div class="col-span-2">
+ <div class="flex items-center gap-3 mb-5">
+ <img src="logo.png" alt="Logo DELTIXIA" class="h-9 w-auto" />
+ <span class="text-lg font-semibold gradient-text">DELTIXIA</span>
+ </div>
+ <p class="text-sm text-deltixia-light/55 leading-relaxed max-w-sm">
+ Agence de digitalisation au Maroc. Automatisation intelligente,
+ applications sur mesure, transformation digitale.
+ </p>
+ <div class="mt-6 flex gap-3">
+ <a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-xl glass flex items-center justify-center hover:border-deltixia-cyan/60 hover:text-deltixia-cyan transition-all"><svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#linkedin"/></svg></a>
+ <a href="#" aria-label="Twitter" class="w-10 h-10 rounded-xl glass flex items-center justify-center hover:border-deltixia-cyan/60 hover:text-deltixia-cyan transition-all"><svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#twitter"/></svg></a>
+ <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-xl glass flex items-center justify-center hover:border-deltixia-cyan/60 hover:text-deltixia-cyan transition-all"><svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#instagram"/></svg></a>
+ </div>
+ </div>
+ <div>
+ <h4 class="text-xs font-semibold uppercase tracking-widest mb-5">Services</h4>
+ <ul class="space-y-3 text-sm text-deltixia-light/55">
+ <li><a href="services.html" class="hover:text-deltixia-cyan transition-colors">Process automation</a></li>
+ <li><a href="services.html" class="hover:text-deltixia-cyan transition-colors">Web &amp; Mobile apps</a></li>
+ <li><a href="services.html" class="hover:text-deltixia-cyan transition-colors">System integration</a></li>
+ <li><a href="solutions.html" class="hover:text-deltixia-cyan transition-colors">Solutions métier</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4 class="text-xs font-semibold uppercase tracking-widest mb-5">Entreprise</h4>
+ <ul class="space-y-3 text-sm text-deltixia-light/55">
+ <li><a href="about.html" class="hover:text-deltixia-cyan transition-colors">À propos</a></li>
+ <li><a href="solutions.html" class="hover:text-deltixia-cyan transition-colors">Cas d'usage</a></li>
+ <li><a href="contact.html" class="hover:text-deltixia-cyan transition-colors">Contact</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4 class="text-xs font-semibold uppercase tracking-widest mb-5">Contact</h4>
+ <ul class="space-y-3 text-sm text-deltixia-light/55">
+ <li class="flex items-center gap-2"><svg class="w-4 h-4 text-deltixia-cyan" aria-hidden="true"><use href="assets/icons.svg#mail"/></svg> contact@deltixia.com</li>
+ <li class="flex items-center gap-2"><svg class="w-4 h-4 text-deltixia-cyan" aria-hidden="true"><use href="assets/icons.svg#map-pin"/></svg> Casablanca / Rabat</li>
+ </ul>
+ </div>
+ </div>
+ <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-deltixia-light/35">
+ <p>© 2026 DELTIXIA. Tous droits réservés.</p>
+ <div class="flex gap-6">
+ <a href="#" class="hover:text-deltixia-cyan transition-colors">Mentions légales</a>
+ <a href="#" class="hover:text-deltixia-cyan transition-colors">Confidentialité</a>
+ </div>
+ </div>
+ </div>
+ </footer>
+
+</body>
+</html>
