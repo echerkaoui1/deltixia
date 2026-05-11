@@ -46,11 +46,14 @@
   /* ------- Chargement des traductions ------- */
 
   const cache = Object.create(null);
+  // Cache-buster : incremente cette valeur a chaque mise a jour des traductions
+  // pour forcer les navigateurs a recharger les JSON (sinon ils servent l'ancienne version)
+  const I18N_VERSION = '2026-05-12-2';
 
   async function loadTranslations(lang) {
     if (cache[lang]) return cache[lang];
     try {
-      const res = await fetch(`assets/i18n/${lang}.json`, { cache: 'force-cache' });
+      const res = await fetch(`assets/i18n/${lang}.json?v=${I18N_VERSION}`);
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const json = await res.json();
       cache[lang] = json;
