@@ -109,14 +109,14 @@
    <div class="reveal flex justify-center mb-8">
     <span class="tape-text" data-i18n="contact.tape">CONTACT</span>
    </div>
-   <h1 class="reveal display-xl leading-[.95]">
+   <h1 class="reveal display-xl leading-[.95]" data-i18n-html="contact.hero.title.full">
     <span class="block text-deltixia-light/85">Parlons de</span>
     <span class="block">
      votre <span class="gradient-flow">projet</span>
      <span class="deco-star align-middle">✳</span>
     </span>
    </h1>
-   <p class="reveal reveal-delay-2 mt-8 text-lg text-deltixia-light/65 max-w-xl mx-auto leading-relaxed">
+   <p class="reveal reveal-delay-2 mt-8 text-lg text-deltixia-light/65 max-w-xl mx-auto leading-relaxed" data-i18n-html="contact.hero.subtitle.full">
     Décrivez-nous votre besoin, on revient vers vous avec
     <span class="gradient-text font-semibold">une lecture et des prochaines étapes concrètes.</span>
    </p>
@@ -154,54 +154,54 @@
 
  <div class="grid sm:grid-cols-2 gap-4">
  <div>
- <label for="name" class="field-label">Nom complet *</label>
- <input id="name" type="text" required x-model="form.name" class="field" placeholder="Votre nom" />
+ <label for="name" class="field-label" data-i18n="contact.form.name">Nom complet *</label>
+ <input id="name" type="text" required x-model="form.name" class="field" placeholder="Votre nom" data-i18n-attr="placeholder:contact.form.name_ph" />
  </div>
  <div>
- <label for="email" class="field-label">Email *</label>
- <input id="email" type="email" required x-model="form.email" class="field" placeholder="vous@entreprise.com" />
+ <label for="email" class="field-label" data-i18n="contact.form.email">Email *</label>
+ <input id="email" type="email" required x-model="form.email" class="field" placeholder="vous@entreprise.com" data-i18n-attr="placeholder:contact.form.email_ph" />
  </div>
  </div>
 
  <div class="grid sm:grid-cols-2 gap-4">
  <div>
- <label for="company" class="field-label">Entreprise</label>
- <input id="company" type="text" x-model="form.company" class="field" placeholder="Nom de société" />
+ <label for="company" class="field-label" data-i18n="contact.form.company">Entreprise</label>
+ <input id="company" type="text" x-model="form.company" class="field" placeholder="Nom de société" data-i18n-attr="placeholder:contact.form.company_ph" />
  </div>
  <div>
- <label for="subject" class="field-label">Sujet *</label>
+ <label for="subject" class="field-label" data-i18n="contact.form.subject">Sujet *</label>
  <select id="subject" required x-model="form.subject" class="field">
- <option value="" disabled selected>Choisir un sujet</option>
- <option value="automation">Automatisation de processus</option>
- <option value="webapp">Application web ou mobile</option>
- <option value="integration">Intégration de systèmes</option>
- <option value="conseil">Conseil &amp; cadrage</option>
- <option value="autre">Autre demande</option>
+ <option value="" disabled selected data-i18n="contact.form.subject_choose">Choisir un sujet</option>
+ <option value="automation" data-i18n="contact.form.subject_automation">Automatisation de processus</option>
+ <option value="webapp" data-i18n="contact.form.subject_webapp">Application web ou mobile</option>
+ <option value="integration" data-i18n="contact.form.subject_integration">Intégration de systèmes</option>
+ <option value="conseil" data-i18n-html="contact.form.subject_consult">Conseil &amp; cadrage</option>
+ <option value="autre" data-i18n="contact.form.subject_other">Autre demande</option>
  </select>
  </div>
  </div>
 
  <div>
- <label for="message" class="field-label">Votre message *</label>
- <textarea id="message" rows="6" required x-model="form.message" class="field resize-none" placeholder="Parlez-nous de votre contexte, vos objectifs, vos contraintes..."></textarea>
+ <label for="message" class="field-label" data-i18n="contact.form.message">Votre message *</label>
+ <textarea id="message" rows="6" required x-model="form.message" class="field resize-none" placeholder="Parlez-nous de votre contexte, vos objectifs, vos contraintes..." data-i18n-attr="placeholder:contact.form.message_ph"></textarea>
  </div>
 
  <div class="flex items-start gap-3 text-xs text-deltixia-light/50">
  <svg class="w-4 h-4 text-deltixia-cyan mt-0.5 shrink-0" aria-hidden="true"><use href="assets/icons.svg#lock"/></svg>
- <p>Vos données restent confidentielles et ne servent qu'à vous recontacter dans le cadre de votre demande.</p>
+ <p data-i18n="contact.form.privacy">Vos données restent confidentielles et ne servent qu'à vous recontacter dans le cadre de votre demande.</p>
  </div>
 
  <button type="submit" :disabled="loading"
  class="btn btn-primary w-full magnetic disabled:opacity-60 disabled:cursor-not-allowed" data-magnetic=".15">
  <span x-show="!loading" class="flex items-center gap-2">
- Envoyer ma demande <svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#send"/></svg>
+ <span data-i18n="contact.form.submit">Envoyer ma demande</span> <svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#send"/></svg>
  </span>
  <span x-show="loading" x-cloak class="inline-flex items-center gap-2">
  <svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" opacity=".25"/>
  <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
  </svg>
- Envoi en cours…
+ <span data-i18n="contact.form.submitting">Envoi en cours…</span>
  </span>
  </button>
  </form>
@@ -211,14 +211,14 @@
  <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-deltixia-blue to-deltixia-cyan flex items-center justify-center mb-6 shadow-[0_0_60px_-10px] shadow-deltixia-cyan">
  <svg class="w-10 h-10 text-white" aria-hidden="true"><use href="assets/icons.svg#check"/></svg>
  </div>
- <h3 class="display-md gradient-text-tri">Message reçu !</h3>
- <p class="mt-3 text-deltixia-light/70 max-w-md mx-auto">
+ <h3 class="display-md gradient-text-tri" data-i18n="contact.form.sent_title">Message reçu !</h3>
+ <p class="mt-3 text-deltixia-light/70 max-w-md mx-auto" data-i18n-html="contact.form.sent_intro">
  Merci <span x-text="form.name"></span>, notre équipe vous répondra
  à <span class="text-deltixia-cyan" x-text="form.email"></span> sous 24h ouvrées.
  </p>
  <button @click="sent = false; form = { name:'', email:'', company:'', subject:'', message:'' }"
  class="btn btn-glass mt-8">
- Envoyer un autre message <svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#rotate-ccw"/></svg>
+ <span data-i18n="contact.form.sent_again">Envoyer un autre message</span> <svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#rotate-ccw"/></svg>
  </button>
  </div>
 
@@ -232,35 +232,35 @@
  <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-deltixia-blue to-deltixia-purple flex items-center justify-center mb-4">
  <svg class="w-5 h-5 text-white" aria-hidden="true"><use href="assets/icons.svg#phone"/></svg>
  </div>
- <div class="eyebrow text-deltixia-light/45 mb-1">Téléphone</div>
+ <div class="eyebrow text-deltixia-light/45 mb-1" data-i18n="contact.info.phone">Téléphone</div>
  <a href="tel:+212000000000" class="text-lg font-semibold text-deltixia-light hover:text-deltixia-cyan transition-colors">
  +212 0 00 00 00 00
  </a>
- <p class="text-xs text-deltixia-light/45 mt-1">Lun–Ven · 9h–18h</p>
+ <p class="text-xs text-deltixia-light/45 mt-1" data-i18n="contact.info.phone_hours">Lun–Ven · 9h–18h</p>
  </div>
 
  <div class="reveal reveal-delay-1 card card-spot card-hover p-6">
  <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-deltixia-purple to-deltixia-cyan flex items-center justify-center mb-4">
  <svg class="w-5 h-5 text-white" aria-hidden="true"><use href="assets/icons.svg#mail"/></svg>
  </div>
- <div class="eyebrow text-deltixia-light/45 mb-1">Email</div>
+ <div class="eyebrow text-deltixia-light/45 mb-1" data-i18n="contact.info.email">Email</div>
  <a href="mailto:contact@deltixia.com" class="text-lg font-semibold text-deltixia-light hover:text-deltixia-cyan transition-colors">
  contact@deltixia.com
  </a>
- <p class="text-xs text-deltixia-light/45 mt-1">Réponse sous 24h ouvrées</p>
+ <p class="text-xs text-deltixia-light/45 mt-1" data-i18n="contact.info.email_sub">Réponse sous 24h ouvrées</p>
  </div>
 
  <div class="reveal reveal-delay-2 card card-spot card-hover p-6">
  <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-deltixia-cyan to-deltixia-blue flex items-center justify-center mb-4">
  <svg class="w-5 h-5 text-white" aria-hidden="true"><use href="assets/icons.svg#map-pin"/></svg>
  </div>
- <div class="eyebrow text-deltixia-light/45 mb-1">Bureau</div>
+ <div class="eyebrow text-deltixia-light/45 mb-1" data-i18n="contact.info.office">Bureau</div>
             <p class="font-semibold">Rabat</p>
-            <p class="text-xs text-deltixia-light/55 mt-0.5">Maroc</p>
+            <p class="text-xs text-deltixia-light/55 mt-0.5" data-i18n="contact.info.country">Maroc</p>
  </div>
 
  <div class="reveal reveal-delay-3 card card-spot card-hover p-6">
- <div class="eyebrow text-deltixia-light/45 mb-3">Suivez-nous</div>
+ <div class="eyebrow text-deltixia-light/45 mb-3" data-i18n="contact.info.social">Suivez-nous</div>
  <div class="flex gap-3">
  <a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-xl glass flex items-center justify-center hover:border-deltixia-cyan/60 hover:text-deltixia-cyan transition-all"><svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#linkedin"/></svg></a>
  <a href="#" aria-label="Twitter / X" class="w-10 h-10 rounded-xl glass flex items-center justify-center hover:border-deltixia-cyan/60 hover:text-deltixia-cyan transition-all"><svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#twitter"/></svg></a>
@@ -285,11 +285,11 @@
  <div class="md:col-span-1 p-8 lg:p-10 relative">
  <div class="absolute -top-20 -left-20 w-60 h-60 rounded-full bg-deltixia-blue/20 blur-3xl"></div>
  <div class="relative z-10">
- <p class="eyebrow">Implantation</p>
-        <h2 class="display-md mt-3">
+ <p class="eyebrow" data-i18n="map.eyebrow">Implantation</p>
+        <h2 class="display-md mt-3" data-i18n-html="map.title.full">
          Présent là où <span class="gradient-text">ça compte</span>
         </h2>
-        <p class="mt-4 text-sm text-deltixia-light/60 leading-relaxed">
+        <p class="mt-4 text-sm text-deltixia-light/60 leading-relaxed" data-i18n="map.desc">
          Notre bureau à Rabat, point d'ancrage pour accompagner
          les projets sur tout le Royaume.
         </p>
@@ -297,7 +297,7 @@
         <div class="mt-6 space-y-3">
          <div class="flex items-center gap-3 text-sm">
           <span class="w-2.5 h-2.5 rounded-full bg-deltixia-cyan shadow-[0_0_12px_2px_rgba(6,182,212,.6)] animate-pulse"></span>
-          <span><span class="font-semibold">Rabat</span>, siège</span>
+          <span class="font-semibold" data-i18n="map.rabat_role">Rabat · siège</span>
          </div>
         </div>
        </div>
@@ -331,7 +331,7 @@
        <div class="absolute top-5 right-5 text-right font-mono text-[10px] text-deltixia-light/40 leading-tight">
         <div>34.0209° N</div>
         <div>6.8416° W</div>
-        <div class="mt-1 tracking-widest">RABAT · MA</div>
+        <div class="mt-1 tracking-widest" data-i18n="map.gps_label">RABAT · MA</div>
        </div>
 
        <!-- Marqueur Rabat, gros, animé, central -->
@@ -341,15 +341,15 @@
         <!-- Marqueur principal -->
         <div class="relative flex flex-col items-center">
          <span class="w-4 h-4 rounded-full bg-deltixia-cyan shadow-[0_0_30px_8px_rgba(6,182,212,.7)]"></span>
-         <span class="mt-3 text-xs font-semibold text-deltixia-light bg-deltixia-dark/85 backdrop-blur px-3 py-1 rounded-md border border-white/10">Rabat · siège</span>
+         <span class="mt-3 text-xs font-semibold text-deltixia-light bg-deltixia-dark/85 backdrop-blur px-3 py-1 rounded-md border border-white/10" data-i18n="map.rabat_role">Rabat · siège</span>
         </div>
        </div>
 
        <!-- Mini-stats sur la carte -->
        <div class="absolute bottom-5 left-5 flex gap-3">
         <div class="glass rounded-lg px-3 py-2">
-         <div class="text-[9px] uppercase tracking-widest text-deltixia-light/45">Couverture</div>
-         <div class="text-sm font-semibold text-deltixia-cyan">Tout le Royaume</div>
+         <div class="text-[9px] uppercase tracking-widest text-deltixia-light/45" data-i18n="map.coverage">Couverture</div>
+         <div class="text-sm font-semibold text-deltixia-cyan" data-i18n="map.coverage_value">Tout le Royaume</div>
         </div>
        </div>
 
@@ -371,7 +371,7 @@
  <img src="logo.png" alt="Logo DELTIXIA" class="h-9 w-auto" />
  <span class="text-lg font-semibold gradient-text">DELTIXIA</span>
  </div>
- <p class="text-sm text-deltixia-light/55 leading-relaxed max-w-sm">
+ <p class="text-sm text-deltixia-light/55 leading-relaxed max-w-sm" data-i18n="footer.tagline">
  Agence de digitalisation au Maroc. Automatisation intelligente,
  applications sur mesure, transformation digitale.
  </p>
@@ -384,18 +384,18 @@
  <div>
  <h4 class="text-xs font-semibold uppercase tracking-widest mb-5"><span data-i18n="footer.services_title">Services</span></h4>
  <ul class="space-y-3 text-sm text-deltixia-light/55">
- <li><a href="services.html" class="hover:text-deltixia-cyan transition-colors">Process automation</a></li>
- <li><a href="services.html" class="hover:text-deltixia-cyan transition-colors">Web &amp; Mobile apps</a></li>
- <li><a href="services.html" class="hover:text-deltixia-cyan transition-colors">System integration</a></li>
- <li><a href="solutions.html" class="hover:text-deltixia-cyan transition-colors">Solutions métier</a></li>
+ <li><a href="services.html" class="hover:text-deltixia-cyan transition-colors" data-i18n="footer.services.process_auto">Process automation</a></li>
+ <li><a href="services.html" class="hover:text-deltixia-cyan transition-colors" data-i18n-html="footer.services.web_mobile">Web &amp; Mobile apps</a></li>
+ <li><a href="services.html" class="hover:text-deltixia-cyan transition-colors" data-i18n="footer.services.integration">System integration</a></li>
+ <li><a href="solutions.html" class="hover:text-deltixia-cyan transition-colors" data-i18n="footer.services.business_solutions">Solutions métier</a></li>
  </ul>
  </div>
  <div>
  <h4 class="text-xs font-semibold uppercase tracking-widest mb-5"><span data-i18n="footer.company_title">Entreprise</span></h4>
  <ul class="space-y-3 text-sm text-deltixia-light/55">
- <li><a href="about.html" class="hover:text-deltixia-cyan transition-colors"><span data-i18n="nav.about">À propos</span></a></li>
- <li><a href="solutions.html" class="hover:text-deltixia-cyan transition-colors">Cas d'usage</a></li>
- <li><a href="contact.html" class="hover:text-deltixia-cyan transition-colors"><span data-i18n="nav.contact">Contact</span></a></li>
+ <li><a href="about.html" class="hover:text-deltixia-cyan transition-colors" data-i18n="footer.company.about">À propos</a></li>
+ <li><a href="solutions.html" class="hover:text-deltixia-cyan transition-colors" data-i18n="footer.company.cases">Cas d'usage</a></li>
+ <li><a href="contact.html" class="hover:text-deltixia-cyan transition-colors" data-i18n="footer.company.contact">Contact</a></li>
  </ul>
  </div>
  <div>
