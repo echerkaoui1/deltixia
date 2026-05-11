@@ -31,6 +31,7 @@
  <link rel="stylesheet" href="assets/styles.css" />
  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
  <script defer src="assets/main.js"></script>
+  <script defer src="assets/i18n.js"></script>
 </head>
 
 <body class="overflow-x-hidden">
@@ -49,14 +50,29 @@
  <span class="text-lg font-semibold tracking-wide gradient-text hidden sm:inline">DELTIXIA</span>
  </a>
  <div class="hidden lg:flex items-center gap-9">
- <a href="index.html" class="nav-link">Accueil</a>
- <a href="services.html" class="nav-link">Services</a>
- <a href="solutions.html" class="nav-link">Solutions</a>
- <a href="about.html" class="nav-link">À propos</a>
- <a href="contact.html" class="nav-link active">Contact</a>
+ <a href="index.html" class="nav-link"><span data-i18n="nav.home">Accueil</span></a>
+ <a href="services.html" class="nav-link"><span data-i18n="nav.services">Services</span></a>
+ <a href="solutions.html" class="nav-link"><span data-i18n="nav.solutions">Solutions</span></a>
+ <a href="about.html" class="nav-link"><span data-i18n="nav.about">À propos</span></a>
+ <a href="contact.html" class="nav-link active"><span data-i18n="nav.contact">Contact</span></a>
  </div>
+<!-- Selecteur de langue -->
+        <div x-data="{ openLang: false }" class="hidden lg:flex relative items-center">
+         <button @click="openLang = !openLang" class="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-white/10 bg-white/5 text-xs font-semibold hover:border-deltixia-cyan/50 transition-colors" aria-label="Choisir la langue">
+          <span data-lang-current>FR</span>
+          <svg class="w-3 h-3 transition-transform" :class="openLang && 'rotate-180'" aria-hidden="true"><use href="assets/icons.svg#chevron-down"/></svg>
+         </button>
+         <div x-show="openLang" @click.outside="openLang = false" x-transition x-cloak
+              class="absolute top-full mt-2 right-0 w-44 glass rounded-lg p-1.5 z-50">
+          <button @click="deltixiaI18n.setLanguage('fr'); openLang=false" data-lang-option="fr" class="block w-full text-left px-3 py-2 rounded text-sm hover:bg-white/5 transition-colors">FR · Français</button>
+          <button @click="deltixiaI18n.setLanguage('en'); openLang=false" data-lang-option="en" class="block w-full text-left px-3 py-2 rounded text-sm hover:bg-white/5 transition-colors">EN · English</button>
+          <button @click="deltixiaI18n.setLanguage('ar'); openLang=false" data-lang-option="ar" class="block w-full text-left px-3 py-2 rounded text-sm hover:bg-white/5 transition-colors" style="direction:rtl">AR · العربية</button>
+          <button @click="deltixiaI18n.setLanguage('de'); openLang=false" data-lang-option="de" class="block w-full text-left px-3 py-2 rounded text-sm hover:bg-white/5 transition-colors">DE · Deutsch</button>
+         </div>
+        </div>
+
  <a href="#form" class="hidden lg:inline-flex btn btn-primary magnetic" data-magnetic=".25">
- Démarrer un projet <svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"/></svg>
+ <span data-i18n="nav.cta">Démarrer un projet</span> <svg class="w-4 h-4" aria-hidden="true"><use href="assets/icons.svg#arrow-up-right"/></svg>
  </a>
  <button @click="mobileOpen = !mobileOpen" class="lg:hidden p-2 rounded-lg border border-white/10 bg-white/5" aria-label="Menu">
  <svg x-show="!mobileOpen" class="w-5 h-5" aria-hidden="true"><use href="assets/icons.svg#menu"/></svg>
@@ -64,12 +80,18 @@
  </button>
  </div>
  <div x-show="mobileOpen" x-transition x-cloak class="lg:hidden pb-6 pt-2 border-t border-white/10 space-y-1">
- <a href="index.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-deltixia-light/75">Accueil</a>
- <a href="services.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-deltixia-light/75">Services</a>
- <a href="solutions.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-deltixia-light/75">Solutions</a>
- <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-deltixia-light/75">À propos</a>
- <a href="contact.html" class="block px-4 py-3 rounded-lg hover:bg-white/5">Contact</a>
- <a href="#form" class="block mt-3 mx-4 btn btn-primary">Démarrer un projet</a>
+ <a href="index.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-deltixia-light/75"><span data-i18n="nav.home">Accueil</span></a>
+ <a href="services.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-deltixia-light/75"><span data-i18n="nav.services">Services</span></a>
+ <a href="solutions.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-deltixia-light/75"><span data-i18n="nav.solutions">Solutions</span></a>
+ <a href="about.html" class="block px-4 py-3 rounded-lg hover:bg-white/5 text-deltixia-light/75"><span data-i18n="nav.about">À propos</span></a>
+ <a href="contact.html" class="block px-4 py-3 rounded-lg hover:bg-white/5"><span data-i18n="nav.contact">Contact</span></a>
+<div class="mt-4 mx-4 flex gap-2 justify-center pt-4 border-t border-white/10">
+         <button @click="deltixiaI18n.setLanguage('fr')" data-lang-option="fr" class="px-3 py-1.5 rounded border border-white/10 bg-white/5 text-xs font-semibold hover:border-deltixia-cyan/50">FR</button>
+         <button @click="deltixiaI18n.setLanguage('en')" data-lang-option="en" class="px-3 py-1.5 rounded border border-white/10 bg-white/5 text-xs font-semibold hover:border-deltixia-cyan/50">EN</button>
+         <button @click="deltixiaI18n.setLanguage('ar')" data-lang-option="ar" class="px-3 py-1.5 rounded border border-white/10 bg-white/5 text-xs font-semibold hover:border-deltixia-cyan/50">AR</button>
+         <button @click="deltixiaI18n.setLanguage('de')" data-lang-option="de" class="px-3 py-1.5 rounded border border-white/10 bg-white/5 text-xs font-semibold hover:border-deltixia-cyan/50">DE</button>
+        </div>
+ <a href="#form" class="block mt-3 mx-4 btn btn-primary"><span data-i18n="nav.cta">Démarrer un projet</span></a>
  </div>
  </div>
  </nav>
@@ -85,7 +107,7 @@
 
   <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
    <div class="reveal flex justify-center mb-8">
-    <span class="tape-text">CONTACT</span>
+    <span class="tape-text" data-i18n="contact.tape">CONTACT</span>
    </div>
    <h1 class="reveal display-xl leading-[.95]">
     <span class="block text-deltixia-light/85">Parlons de</span>
@@ -360,7 +382,7 @@
  </div>
  </div>
  <div>
- <h4 class="text-xs font-semibold uppercase tracking-widest mb-5">Services</h4>
+ <h4 class="text-xs font-semibold uppercase tracking-widest mb-5"><span data-i18n="footer.services_title">Services</span></h4>
  <ul class="space-y-3 text-sm text-deltixia-light/55">
  <li><a href="services.html" class="hover:text-deltixia-cyan transition-colors">Process automation</a></li>
  <li><a href="services.html" class="hover:text-deltixia-cyan transition-colors">Web &amp; Mobile apps</a></li>
@@ -369,15 +391,15 @@
  </ul>
  </div>
  <div>
- <h4 class="text-xs font-semibold uppercase tracking-widest mb-5">Entreprise</h4>
+ <h4 class="text-xs font-semibold uppercase tracking-widest mb-5"><span data-i18n="footer.company_title">Entreprise</span></h4>
  <ul class="space-y-3 text-sm text-deltixia-light/55">
- <li><a href="about.html" class="hover:text-deltixia-cyan transition-colors">À propos</a></li>
+ <li><a href="about.html" class="hover:text-deltixia-cyan transition-colors"><span data-i18n="nav.about">À propos</span></a></li>
  <li><a href="solutions.html" class="hover:text-deltixia-cyan transition-colors">Cas d'usage</a></li>
- <li><a href="contact.html" class="hover:text-deltixia-cyan transition-colors">Contact</a></li>
+ <li><a href="contact.html" class="hover:text-deltixia-cyan transition-colors"><span data-i18n="nav.contact">Contact</span></a></li>
  </ul>
  </div>
  <div>
- <h4 class="text-xs font-semibold uppercase tracking-widest mb-5">Contact</h4>
+ <h4 class="text-xs font-semibold uppercase tracking-widest mb-5"><span data-i18n="footer.contact_title">Contact</span></h4>
  <ul class="space-y-3 text-sm text-deltixia-light/55">
  <li class="flex items-center gap-2"><svg class="w-4 h-4 text-deltixia-cyan" aria-hidden="true"><use href="assets/icons.svg#mail"/></svg> contact@deltixia.com</li>
  <li class="flex items-center gap-2"><svg class="w-4 h-4 text-deltixia-cyan" aria-hidden="true"><use href="assets/icons.svg#map-pin"/></svg> Rabat</li>
@@ -385,10 +407,10 @@
  </div>
  </div>
  <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-deltixia-light/35">
- <p>© 2026 DELTIXIA. Tous droits réservés.</p>
+ <p><span data-i18n="footer.rights">© 2026 DELTIXIA. Tous droits réservés.</span></p>
  <div class="flex gap-6">
- <a href="#" class="hover:text-deltixia-cyan transition-colors">Mentions légales</a>
- <a href="#" class="hover:text-deltixia-cyan transition-colors">Confidentialité</a>
+ <a href="#" class="hover:text-deltixia-cyan transition-colors"><span data-i18n="footer.legal">Mentions légales</span></a>
+ <a href="#" class="hover:text-deltixia-cyan transition-colors"><span data-i18n="footer.privacy">Confidentialité</span></a>
  </div>
  </div>
  </div>

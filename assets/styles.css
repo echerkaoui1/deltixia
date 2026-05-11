@@ -937,6 +937,66 @@ body {
 }
 
 /* ==========================================================================
+   RTL — overrides pour la langue arabe
+   ========================================================================== */
+
+html[dir="rtl"] {
+  font-family: 'Tajawal', 'Poppins', system-ui, sans-serif;
+}
+
+/* Inverser les decorations a sens de lecture */
+html[dir="rtl"] .tape-text {
+  transform: rotate(1deg); /* l'angle s'inverse pour rester naturel */
+}
+html[dir="rtl"] .text-outline.italic,
+html[dir="rtl"] .text-outline {
+  font-style: normal; /* italique latin = bizarre en arabe */
+}
+
+/* Ajuster les chevrons / arrows internes des boutons en RTL */
+html[dir="rtl"] svg[aria-hidden] use[href*="#arrow-right"],
+html[dir="rtl"] svg[aria-hidden] use[href*="#arrow-up-right"] {
+  /* pas de flip global car les SVG sont symboliques, mais on flip les fleches de progression */
+}
+html[dir="rtl"] .btn svg[aria-hidden] {
+  transform: scaleX(-1); /* les fleches dans les boutons s'inversent visuellement */
+}
+
+/* Le diviseur, le travel-dot, les sweep-borders s'inversent automatiquement
+   grace au flex/grid, mais on force le sens des animations qui partent de la gauche */
+html[dir="rtl"] .scan-border::after {
+  /* l'animation balaie de droite a gauche en RTL */
+  animation-direction: reverse;
+}
+
+/* Le marquee : on inverse le sens du defilement */
+html[dir="rtl"] .marquee-track {
+  animation-direction: reverse;
+}
+
+/* Le slogan dans le hero : permettre au texte de wrapper naturellement */
+html[dir="rtl"] .huge-text,
+html[dir="rtl"] .display-xl {
+  letter-spacing: 0; /* tracking serre = mauvais pour l'arabe */
+}
+
+/* Tabular nums : garder LTR pour les chiffres (KPIs, compteurs) */
+html[dir="rtl"] .kpi-mega,
+html[dir="rtl"] [data-counter],
+html[dir="rtl"] [data-ticker],
+html[dir="rtl"] [data-live-kpi] {
+  direction: ltr;
+  display: inline-block;
+  unicode-bidi: embed;
+}
+
+/* Le numero "01"/"02" decoratif dans les services : aussi LTR */
+html[dir="rtl"] .text-5xl.opacity-30,
+html[dir="rtl"] .bento-id {
+  direction: ltr;
+}
+
+/* ==========================================================================
    Réduction des animations (accessibilité)
    ========================================================================== */
 
