@@ -339,5 +339,15 @@
   "contact.hero.subtitle.full": "صفوا لنا حاجتكم، نعود إليكم بـ\n    <span class=\"gradient-text font-semibold\">قراءة أولية وخطوات تالية ملموسة.</span>",
   "contact.form.sent_intro": "شكرًا <span x-text=\"form.name\"></span>، فريقنا سيرد عليكم\n على <span class=\"text-deltixia-cyan\" x-text=\"form.email\"></span> خلال 24 ساعة عمل.",
   "map.title.full": "حاضرون حيث <span class=\"gradient-text\">يهمّ الأمر</span>",
-  "map.gps_label": "الرباط · المغرب"
+  "map.gps_label": "الرباط · المغرب",
+  "page.title.index": "ديلتيكسيا · ما تقومون به يدويًا، نحن نقوم ببرمجته.",
+  "page.title.services": "الخدمات · ديلتيكسيا",
+  "page.title.solutions": "الحلول · ديلتيكسيا",
+  "page.title.about": "من نحن · ديلتيكسيا",
+  "page.title.contact": "اتصل بنا · ديلتيكسيا",
+  "page.meta.index": "ديلتيكسيا · ما تقومون به يدويًا، نحن نقوم ببرمجته. أتمتة ذكية، تطبيقات مخصصة وتنسيق البيانات للشركات المغربية.",
+  "page.meta.services": "ديلتيكسيا · الخدمات: أتمتة العمليات، تطبيقات الويب والموبايل، تكامل الأنظمة.",
+  "page.meta.solutions": "ديلتيكسيا · حلول واقعية: أتمتة الموارد البشرية، إدارة المخزون، لوحات قيادة والمزيد.",
+  "page.meta.about": "ديلتيكسيا · قصتنا، مهمتنا وقيمنا: الابتكار، الأداء، الموثوقية، الشراكة.",
+  "page.meta.contact": "ديلتيكسيا · اتصلوا بفريقنا في الرباط لإطلاق مشروع التحول الرقمي."
 }

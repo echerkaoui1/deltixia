@@ -339,5 +339,15 @@
   "contact.hero.subtitle.full": "Describe your need, we'll come back to you with\n    <span class=\"gradient-text font-semibold\">a first read and concrete next steps.</span>",
   "contact.form.sent_intro": "Thanks <span x-text=\"form.name\"></span>, our team will reply\n at <span class=\"text-deltixia-cyan\" x-text=\"form.email\"></span> within 24 business hours.",
   "map.title.full": "Right where <span class=\"gradient-text\">it matters</span>",
-  "map.gps_label": "RABAT · MA"
+  "map.gps_label": "RABAT · MA",
+  "page.title.index": "DELTIXIA · What you do by hand, we code.",
+  "page.title.services": "Services · DELTIXIA",
+  "page.title.solutions": "Solutions · DELTIXIA",
+  "page.title.about": "About · DELTIXIA",
+  "page.title.contact": "Contact · DELTIXIA",
+  "page.meta.index": "DELTIXIA · What you do by hand, we code. Smart automation, custom applications and data orchestration for Moroccan companies.",
+  "page.meta.services": "DELTIXIA · Services: process automation, web & mobile apps, system integration.",
+  "page.meta.solutions": "DELTIXIA · Real-world solutions: HR automation, inventory management, dashboards and more.",
+  "page.meta.about": "DELTIXIA · Our story, mission and values: Innovation, Performance, Reliability, Partnership.",
+  "page.meta.contact": "DELTIXIA · Contact our team in Rabat to kick off your digital transformation project."
 }

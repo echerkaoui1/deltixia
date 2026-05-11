@@ -339,5 +339,15 @@
   "contact.hero.subtitle.full": "Beschreiben Sie Ihren Bedarf, wir melden uns zurück mit\n    <span class=\"gradient-text font-semibold\">einer ersten Einschätzung und konkreten nächsten Schritten.</span>",
   "contact.form.sent_intro": "Danke <span x-text=\"form.name\"></span>, unser Team antwortet\n an <span class=\"text-deltixia-cyan\" x-text=\"form.email\"></span> innerhalb von 24h zu Geschäftszeiten.",
   "map.title.full": "Dort, wo es <span class=\"gradient-text\">darauf ankommt</span>",
-  "map.gps_label": "RABAT · MA"
+  "map.gps_label": "RABAT · MA",
+  "page.title.index": "DELTIXIA · Was Sie von Hand machen, programmieren wir.",
+  "page.title.services": "Leistungen · DELTIXIA",
+  "page.title.solutions": "Lösungen · DELTIXIA",
+  "page.title.about": "Über uns · DELTIXIA",
+  "page.title.contact": "Kontakt · DELTIXIA",
+  "page.meta.index": "DELTIXIA · Was Sie von Hand machen, programmieren wir. Intelligente Automatisierung, maßgeschneiderte Anwendungen und Datenorchestrierung für marokkanische Unternehmen.",
+  "page.meta.services": "DELTIXIA · Leistungen: Prozessautomatisierung, Web- & Mobile-Apps, Systemintegration.",
+  "page.meta.solutions": "DELTIXIA · Praxisnahe Lösungen: HR-Automation, Bestandsmanagement, Dashboards und mehr.",
+  "page.meta.about": "DELTIXIA · Unsere Geschichte, Mission und Werte: Innovation, Performance, Zuverlässigkeit, Partnerschaft.",
+  "page.meta.contact": "DELTIXIA · Kontaktieren Sie unser Team in Rabat, um Ihr digitales Projekt zu starten."
 }
